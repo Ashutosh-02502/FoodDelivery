@@ -3,7 +3,7 @@ export const StoreContext = createContext(null);
 import { useState } from "react";
 import axios from "axios";
 
-const url = "http://localhost:4000";
+const url = "https://fooddelivery-backend-1ocy.onrender.com";
 const StoreContextProvider = (props) => {
   const [cartItems, setCartItems] = useState({});
   const [token, setToken] = useState("");
@@ -16,7 +16,7 @@ const StoreContextProvider = (props) => {
     }
     if (token) {
       await axios.post(
-        "http://localhost:4000/api/cart/add",
+        `${url}/api/cart/add`,
         { itemId },
         { headers: { token } }
       );
@@ -28,7 +28,7 @@ const StoreContextProvider = (props) => {
     }
     if (token) {
       await axios.post(
-        "http://localhost:4000/api/cart/remove",
+        `${url}/api/cart/remove`,
         { itemId },
         { headers: { token } }
       );
@@ -45,12 +45,12 @@ const StoreContextProvider = (props) => {
     return totalAmount;
   };
   const fetchFoodList = async () => {
-    const response = await axios.get("http://localhost:4000/api/food/list");
+    const response = await axios.get(`${url}/api/food/list`);
     setFoodList(response.data.data);
   };
   const loadCartData = async (token) => {
     const response = await axios.post(
-      "http://localhost:4000/api/cart/get",
+      `${url}/api/cart/get`,
       {},
       {
         headers: { token },

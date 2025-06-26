@@ -20,13 +20,13 @@ const Cart = () => {
         </div>
         <br />
         <hr />
-        {food_list.map((item, index) => {
+        {Array.isArray(food_list) && food_list.map((item, index) => {
           if (cartItems[item._id] > 0) {
             return (
               <div key={index}>
                 <div className="cart-items-title cart-items-item">
                   <img
-                    src={`http://localhost:4000/images/` + item.image}
+                    src={`https://fooddelivery-backend-1ocy.onrender.com/images/` + item.image}
                     alt=""
                   />
                   <p>{item.name}</p>

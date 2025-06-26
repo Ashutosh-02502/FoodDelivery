@@ -5,7 +5,7 @@ import axios from "axios";
 import { StoreContext } from "../../context/StoreContext";
 
 const LoginPopup = ({ setShowLogin }) => {
-  const url = "http://localhost:4000/";
+  const url = "https://fooddelivery-backend-1ocy.onrender.com/";
   const { setToken } = useContext(StoreContext);
   const [currState, setCurrState] = useState("Login");
   const [data, setData] = useState({ name: "", email: "", password: "" });

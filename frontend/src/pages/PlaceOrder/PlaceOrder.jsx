@@ -27,7 +27,6 @@ const PlaceOrder = () => {
 
   const placeOrder = async (event) => {
     event.preventDefault();
-    console.log("PLACE ORDER CLICKED");
     let orderItems = [];
     food_list.map((item) => {
       if (cartItems[item._id] > 0) {
@@ -66,10 +65,14 @@ try {
 
 
 useEffect(() => {
-  if (!token || getTotalCartAmount() === 0) {
+  const total = getTotalCartAmount();
+  console.log("Token:", token);
+  console.log("Total cart amount:", total);
+  if (!token || total === 0) {
+    console.log("Redirecting to /cart...");
     navigate("/cart");
   }
-}, [token, getTotalCartAmount, navigate]);
+}, [token, cartItems, navigate]);
 
 
   return (
