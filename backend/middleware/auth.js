@@ -13,5 +13,4 @@ const authMiddleware = async (req, res, next) => {
     return res.json({ success: false, message: "Error" });
   }
 };
-
 export default authMiddleware;
