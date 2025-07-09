@@ -14,6 +14,7 @@ const List = () => {
       toast.error("Error");
     }
   };
+  
   const removeFood = async (foodId) => {
     const response = await axios.post(`${url}/api/food/remove`, {
       id: foodId,
@@ -25,9 +26,11 @@ const List = () => {
       toast.error(response.data.message);
     }
   };
+  
   useEffect(() => {
     fetchList();
   }, []);
+  
   return (
     <div className="list add flex-col">
       <p>All Foods List</p>
