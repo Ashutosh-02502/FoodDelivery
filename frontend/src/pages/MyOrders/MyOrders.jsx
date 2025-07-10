@@ -16,7 +16,6 @@ const MyOrders = () => {
         const responce = await axios.post(url+"/api/order/userorders",{},{headers:{token}});
         setData(responce.data.data);
     }
-
     useEffect(()=>{
         if(token){
             fetchOrders();
